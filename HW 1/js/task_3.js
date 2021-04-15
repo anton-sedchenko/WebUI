@@ -1,31 +1,32 @@
 'use strict';
 
-function isTicketLucky(n) {
-	const num = n;
-
-	if (n <= 0 || n > 1000000) {
+function isTicketLucky(num) {
+	if (num <= 0 || num > 1000000) {
 
 		return 'Invalid value. Enter the number from 100\'000 to 999\'999.'
 	}
 
-	if (n <= 100000) {
+	if (num <= 100000) {
 
 		return 'NO'
 	}
 
-	let numberLeftPart = num.toString().slice(0, 3);
-	let numberRightPart = num.toString().slice(3, 6);
+	const numString = num.toString();
+	let numLeftPart = numString.slice(0, numString.length / 2);
+	let numRightPart = numString.slice(numString.length / 2);
 
-	numberLeftPart = [...numberLeftPart];
-	numberRightPart = [...numberRightPart];
+	numLeftPart = [...numLeftPart];
+	numRightPart = [...numRightPart];
 
-	const leftPartNumsSum = numberLeftPart.reduce((sum, current) => Number(sum) + Number(current));
-	const rightPartNumsSum = numberRightPart.reduce((sum, current) => Number(sum) + Number(current));
+	const leftPartNumsSum = numLeftPart.reduce((sum, current) => {
+		
+		return sum + Number(current);
+	}, 0);
 
-	if (leftPartNumsSum === rightPartNumsSum) {
+	const rightPartNumsSum = numRightPart.reduce((sum, current) => {
+		
+		return sum + Number(current);
+	}, 0);
 
-		return 'YES';
-	}
-
-	return 'NO';
+	return leftPartNumsSum === rightPartNumsSum ? 'YES' : 'NO';
 }
