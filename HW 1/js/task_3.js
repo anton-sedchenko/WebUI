@@ -3,9 +3,14 @@
 function isTicketLucky(n) {
 	const num = n;
 
-	if (n < 100000 || n > 1000000) {
+	if (n <= 0 || n > 1000000) {
 
 		return 'Invalid value. Enter the number from 100\'000 to 999\'999.'
+	}
+
+	if (n <= 100000) {
+
+		return 'NO'
 	}
 
 	let numberLeftPart = num.toString().slice(0, 3);
