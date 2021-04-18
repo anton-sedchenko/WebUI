@@ -1,7 +1,7 @@
 'use strict';
 
 function ticTacToeWinChecker(board) {
-	let boardCells = [...board[0], ...board[1], ...board[2]];
+	const boardCells = [...board[0], ...board[1], ...board[2]];
 	const isEmptySpots = board.some(row => row.some(cell => cell === 0));
 	const winnerRows = [
         [1, 2, 3],
