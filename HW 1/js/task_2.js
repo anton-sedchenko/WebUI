@@ -9,15 +9,11 @@ function findBestCost(a1, a2, a3, b1, b2, b3) {
 
 	if (invalidValueCheck) {
 
-		return 'Invalid value. Enter value from 1 to 100.'
+		return 'Invalid value. Enter value from 1 to 100.';
 	}
 
-	const [typeCost_1, typeCost_2, typeCost_3, ...capacitiesArray] = arguments;
-	const typesCostArray = [];
-
-	typesCostArray.push(typeCost_1);
-	typesCostArray.push(typeCost_2);
-	typesCostArray.push(typeCost_3);
+	const typesCostArray = [a1, a2, a3];
+	const capacitiesArray = [b1, b2, b3];
 
 	typesCostArray.sort((a, b) => b - a);
 	capacitiesArray.sort((a, b) => b - a);
