@@ -37,26 +37,26 @@
 
 function findPartMaxProd(n) {
 	const result = [];
-    let num = 0;
-	let firstNum = n;
+	let num = n - 1;
 		
-	function partition(firstNum) {
+	function partition(num) {
 		let i;
 
-		if (firstNum > 0) {
-			result.push(firstNum);
+		if (num > 0) {
 
-			for (i = firstNum; i > 0; i--) {
-				partition(firstNum - i);
+			for (i = num; i > 0; i--) {
+				result.push(i);
+				console.log('step: ' + i);
+				console.log('result: ' + result);
+				partition(num - 1);
 			}
-		} else {
-			
 		}
+
 		console.log(result);
 		return result;
 	}
 
-	partition(n);
+	partition(num);
 }
 
 findPartMaxProd(3);
