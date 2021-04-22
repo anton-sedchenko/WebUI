@@ -1,11 +1,5 @@
 'use strict';
  
-// Task 2:
-// Find the Partition with Maximum Product Value
-// You are given a certain integer, n, n > 0. You have to search the partition or partitions, of n, with maximum product value.
-
-// Let'see the case for n = 8.
-
 // Partition                 Product
 // [8]                          8
 // [7, 1]                       7
@@ -30,10 +24,6 @@
 // [2, 1, 1, 1, 1, 1, 1]        2
 // [1, 1, 1, 1, 1, 1, 1, 1]     1
 
-// So our needed function will work in that way
-// findPartMaxProd(8) --> [[3, 3, 2], 18]
-
-// If there are more than one partition with maximum product value, the function should output the patitions in a length sorted way.
 
 // findPartMaxProd(10) --> [[4, 3, 3], [3, 3, 2, 2], 36]
 // Enjoy it!
@@ -44,3 +34,29 @@
 //     Test.assertSimilar(findPartMaxProd(10), [[4, 3, 3], [3, 3, 2, 2], 36]);
 //    });
 //  });
+
+function findPartMaxProd(n) {
+	const result = [];
+    let num = 0;
+	let firstNum = n;
+		
+	function partition(firstNum) {
+		let i;
+
+		if (firstNum > 0) {
+			result.push(firstNum);
+
+			for (i = firstNum; i > 0; i--) {
+				partition(firstNum - i);
+			}
+		} else {
+			
+		}
+		console.log(result);
+		return result;
+	}
+
+	partition(n);
+}
+
+findPartMaxProd(3);
