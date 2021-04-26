@@ -9,7 +9,16 @@ const quipuMathTable = {
 	'6': '@@@@@@',
 	'7': '@@@@@@@',
 	'8': '@@@@@@@@',
-	'9': '@@@@@@@@@'
+	'9': '@@@@@@@@@',
+	'@': '1',
+	'@@': '2',
+	'@@@': '3',
+	'@@@@': '4',
+	'@@@@@': '5',
+	'@@@@@@': '6',
+	'@@@@@@@': '7',
+	'@@@@@@@@': '8',
+	'@@@@@@@@@': '9'
 }
 
 function quipuCalc(str) {
@@ -26,33 +35,17 @@ function quipuCalc(str) {
 
 function quipuDecoder(num) {
 	const charsArr = num.match(/~+|@+/g);
-	const decodedCharsArr = charsArr.map(item => {
+	const decodedCharsArr = charsArr.map(item => { 
+	 	const char = quipuMathTable[item];
+	 	return char || ''.padEnd(item.length - 1, '0'); 
+	 });
 
-		for (let key in quipuMathTable) {
-			if (quipuMathTable[key] === item) {
-				return key;
-			}
-		}
-
-		return ''.padEnd(item.length - 1, '0');
-	});
 	return decodedCharsArr.join('');
 }
 
 function quipuCoder(num) {
 	const splittedNum = num.toString().split('');
-	const codedStr = splittedNum.map((item, i) => {
+	const codedStr = splittedNum.map(item => quipuMathTable[item]);
 
-		for (let key in quipuMathTable) {
-			if (key === item) {
-				if (splittedNum.length > 1 && i !== splittedNum.length - 1) {
-					return  quipuMathTable[key] + '~';	
-				}
-				return  quipuMathTable[key];
-			}
-		}
-
-		return '~';
-	});
-	return codedStr.join('');
+ 	return codedStr.join('~');
 }

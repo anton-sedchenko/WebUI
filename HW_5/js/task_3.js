@@ -11,27 +11,43 @@ function tickets(clients) {
 	const isChange = clients.every(client => {
 		if (client === ticketCost) {
 			cash.push(ticketCost);
+
+			console.log(cash);
 		}
 
 		if (client === 50) {
-			const is25Change = cash.some(change => change === 25);
+			const index25Change = cash.indexOf(25);
 			
-			if (is25Change) {
-				cash.splice(cash.indexOf(25), 1);
+			if (index25Change > -1) {
+				cash.splice(index25Change, 1);
 				cash.push(50);
+
+				console.log(cash);
 			} else {
 				return false;
 			}
 		}
 
 		if (client === 100) {
-			const is25Change = cash.some(change => change === 25);
-			const is50Change = cash.some(change => change === 50);
+			const index25Change = cash.indexOf(25);
+			const index50Change = cash.indexOf(50);
 			const is75ChangeBy25 = cash.filter(change => change === 25);
 
-			if ((is25Change && is50Change) || (is75ChangeBy25.length >= 3)) {
+			if (index25Change > -1 && index50Change > -1) {
+				cash.splice(index25Change, 1);
 				cash.splice(cash.indexOf(50), 1);
 				cash.push(100);
+
+				return true;
+			}
+
+			if ((is75ChangeBy25.length >= 3)) {
+				for (let i = is75ChangeBy25.length; i > 0; i--) {
+					cash.splice(cash.indexOf(25), 1);
+					cash.push(100);
+
+					return true;
+				}
 			} else {
 				return false;
 			}
