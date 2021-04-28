@@ -6,7 +6,6 @@ export default class View {
 	}
 
 	renderWeatherInfo(data) {
-		console.log(data);
 		const temp = Math.floor(data.main.temp - 273);
 		const city = data.name;
 		const country = data.sys.country;
@@ -15,5 +14,9 @@ export default class View {
 			<div><p class="temperature">Temperature: ${temp}&degC</p></div>`;
 
 		this.infoContainer.innerHTML += weatherHTML;
+	}
+
+	clearInfocontainer() {
+		this.infoContainer.innerHTML = '';
 	}
 }

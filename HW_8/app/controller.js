@@ -10,7 +10,8 @@ export default class Controller {
 	handleClickSearch(evt) {
 		evt.preventDefault();
 		const city = this.model.getCity();
-		
+
+		this.view.clearInfocontainer();
 		this.model.load(city);
 	}
 
