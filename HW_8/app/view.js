@@ -5,6 +5,11 @@ export default class View {
 		document.querySelector('.btn-search-city').addEventListener('click', handleClickSearch);
 	}
 
+	getCity() {
+		const city = document.querySelector('.form-control').value;
+		return city;
+	}
+
 	renderWeatherInfo(data) {
 		const temp = Math.floor(data.main.temp - 273);
 		const city = data.name;
@@ -16,7 +21,7 @@ export default class View {
 		this.infoContainer.innerHTML += weatherHTML;
 	}
 
-	clearInfocontainer() {
+	clearInfoContainer() {
 		this.infoContainer.innerHTML = '';
 	}
 }
