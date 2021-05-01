@@ -3,10 +3,20 @@
 }
 
 .section-gallery__card {
-	height: 300px;
+	min-height: 300px;
+	padding-bottom: 30px !important;
+}
+
+.section-gallery__card-content-wrapper {
+	border: 1px solid #393737;
+	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 30px !important;
+	padding: 10px;
+}
+
+.section-gallery__card-content-wrapper:hover {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .section-gallery__product-image-block {
