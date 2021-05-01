@@ -18,12 +18,12 @@
 	background-color: grey;
 }
 
-.header__contacts-email-link,
+.contacts-email-link,
 .header__nav-list-link {
 	color: #4D4949;
 }
 
-.header__contacts-email-link:hover,
+.contacts-email-link:hover,
 .header__nav-list-link:hover {
 	text-decoration: none;
 	color: #4D7070;
@@ -46,7 +46,7 @@
 		align-items: center;
 	}
 
-	.header__contacts {
+	.contacts {
 		display: flex;
 		flex-direction: column;
 		align-items: center;

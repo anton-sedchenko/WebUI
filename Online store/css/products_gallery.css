@@ -26,6 +26,10 @@
 	background-size: cover;
 }
 
+.drinks {
+	background-image: url("../img/pepsi.png");
+}
+
 .section-gallery__product-image {
 	height: 100%;
 }
