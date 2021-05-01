@@ -14,7 +14,7 @@
                    <div class="col-sm-4 header__contacts">
                         <p class="header__contacts-phone">+38(098)111-22-33</p>
                         <p class="header__contacts-email">
-                            <a href="foodomart@gmail.com">foodomart@gmail.com</a>
+                            <a class="header__contacts-email-link" href="foodomart@gmail.com">foodomart@gmail.com</a>
                         </p>
                     </div>
                     <div class="col-sm-4 header__logo-container d-flex justify-content-center">
@@ -33,13 +33,13 @@
                     <div class="header__nav">
                         <ul class="d-flex header__nav-list">
                             <li class="header__nav-list-item mr-2">
-                                <a href="#">food</a>
+                                <a class="header__nav-list-link" href="#">food</a>
                             </li>
                             <li class="header__nav-list-item mr-2">
-                                <a href="#">drinks</a>
+                                <a class="header__nav-list-link" href="#">drinks</a>
                             </li>
                             <li class="header__nav-list-item">
-                                <a href="">other</a>
+                                <a class="header__nav-list-link" href="#">other</a>
                             </li>
                         </ul>
                     </div>
@@ -69,43 +69,119 @@
                 </div>
             </aside>
 
-            <main class="container-fluid products-gallery">
+            <hr>
+
+            <section class="container-fluid section-rules mb-2">
                 <div class="row">
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-md-4 section-rules__block">
+                        <div class="section-rules__image-container section-rules__delivery-image-block mb-3">
+                            <img class="section-rules__image" src="img/delivery.png" alt="delivery icon">
+                        </div>
+                        <p>Бесплатная доставка от суммы заказа 200 грн</p>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-md-4 section-rules__block">
+                        <div class="section-rules__image-container section-rules__payment-image-block mb-3">
+                            <img class="section-rules__image" src="img/wallet.png" alt="wallet icon">
+                        </div>
+                        <p>Оплата наличными или по карте при получении заказа</p>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-md-4 section-rules__block">
+                        <div class="section-rules__image-container section-rules__order-image-block mb-3">
+                            <img class="section-rules__image" src="img/phone.png" alt="phone icon">
+                        </div>
+                        <p>Заказы принимаются круглосуточно в праздники и выходные</p>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                </div>
+            </section>
+
+            <hr>
+
+            <main class="container-fluid section-gallery">
+                <h2 class="d-flex justify-content-center section-gallery__title mb-3 pt-3">Pizza's</h2>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
-                    <div class="col-md-3 products-gallery__card p-2">
-                        <div class="card-inner"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
+                        <div class="section-gallery__product-image-block mb-3">
+                        </div>
+                        <p class="section-gallery__product-title mb-2">Pizza Carbonara</p>
+                        <p class="section-gallery__product-price mb-2">Цена: 150 грн</p>
+                        <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                     </div>
                 </div>
             </main>

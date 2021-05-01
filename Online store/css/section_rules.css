@@ -1,0 +1,56 @@
+.section-rules {
+	display: flex;
+	align-items: center;
+	min-height: 200px;
+}
+
+.section-rules__block {
+	border-right: 2px solid #A3A695;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.section-rules__block:last-child {
+	border-right: none;
+}
+
+.section-rules__delivery-image-block {
+	background-color: #A7B043;
+}
+.section-rules__payment-image-block {
+	background-color: #3AAEDC;
+}
+
+.section-rules__order-image-block {
+	background-color: #FCB937;
+}
+
+.section-rules__image-container {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.section-rules__image {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 60%;
+	transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+	.section-rules {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 576px) {
+	.section-rules {
+		display: none !important;
+	}
+}
