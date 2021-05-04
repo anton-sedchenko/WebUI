@@ -28,16 +28,16 @@ body {
 }
 
 .btn {
-  font-family: "HindSiliguri" !important;
-  font-size: 18px !important;
-  line-height: 25px;
-  border: 1px solid #393737;
+	font-family: "HindSiliguri" !important;
+	font-size: 18px !important;
+	line-height: 25px;
+	border: 1px solid #393737;
 }
 
 .btn:hover {
-  background-color: #393737;
-  color: white;
-  cursor: pointer;
+	background-color: #393737;
+	color: white;
+	cursor: pointer;
 }
 
 .btn:active {

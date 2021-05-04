@@ -43,16 +43,16 @@ body {
 	font-size: 17px !important;
 }
 
-.pagination {
+.pages-navigation {
 	margin-bottom: 30px;
 }
 
-.pagination__items-divider {
+.pages-navigation__items-divider {
 	margin: 0 10px;
 }
 
 .product-describe-container {
-	min-height: 420px;
+	min-height: 450px;
 	padding: 0;
 }
 
