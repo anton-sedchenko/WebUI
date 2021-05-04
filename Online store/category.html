@@ -3,7 +3,7 @@
     <head>
         <title>Food-o-mart</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="css/main.css" rel="stylesheet" />
+        <link href="css/category_page.css" rel="stylesheet" />
         <link rel="stylesheet" href="css/fonts.css">
         <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     </head>
@@ -53,57 +53,15 @@
                 <hr>
             </header>
 
-            <aside class="container-fluid promo-slider__container mb-5">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-sm-11 col-xl-8 slider-container">
-                        <div class="arrow-left-container">
-                            <img src="img/a-icon-arrow.svg" alt="left arrow" />
-                        </div>
-                        <div class="slider-window">
-                            <div class="slide-line">
-                                <div class="slider-item">
-                                    <div class="slide-photo-container">
-                                        <img class="slide-picture" src="#" alt="products picture" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="arrow-right-container arrow-right-container">
-                            <img src="img/a-icon-arrow.svg" alt="right arrow" />
-                        </div>
-                    </div>
-                </div>
+            <aside class="container-fluid">
+                <p class="pages-navigation">
+                    <a class="pages-navigation__item" href="#">Главная</a>
+                    <span class="pages-navigation__items-divider">></span>
+                    <a class="pages-navigation__item" href="#">Пиццы</a>
+                </p>
             </aside>
 
-            <hr>
-
-            <section class="container-fluid section-rules mb-2">
-                <div class="row">
-                    <div class="col-md-4 section-rules__block">
-                        <div class="section-rules__image-container section-rules__delivery-image-block mb-3">
-                            <img class="section-rules__image" src="img/delivery.png" alt="delivery icon">
-                        </div>
-                        <p>Бесплатная доставка от суммы заказа 200 грн</p>
-                    </div>
-                    <div class="col-md-4 section-rules__block">
-                        <div class="section-rules__image-container section-rules__payment-image-block mb-3">
-                            <img class="section-rules__image" src="img/wallet.png" alt="wallet icon">
-                        </div>
-                        <p>Оплата наличными или по карте при получении заказа</p>
-                    </div>
-                    <div class="col-md-4 section-rules__block">
-                        <div class="section-rules__image-container section-rules__order-image-block mb-3">
-                            <img class="section-rules__image" src="img/phone.png" alt="phone icon">
-                        </div>
-                        <p>Заказы принимаются круглосуточно в праздники и выходные</p>
-                    </div>
-                </div>
-            </section>
-
-            <hr>
-
-            <main class="container-fluid section-gallery">
-                <h2 class="d-flex justify-content-center section-gallery__title mb-3 pt-3">Пиццы</h2>
+            <main class="container-fluid product-describe-container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
                         <div class="section-gallery__card-content-wrapper">
@@ -178,45 +136,16 @@
                         </div>
                     </div>
                 </div>
-                <hr>
-                <h2 class="d-flex justify-content-center section-gallery__title mb-3 pt-3">Напитки</h2>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
-                        <div class="section-gallery__card-content-wrapper">
-                            <div class="section-gallery__product-image-block drinks mb-3">
-                            </div>
-                            <p class="section-gallery__product-title mb-2">Pepsi 0,33л.</p>
-                            <p class="section-gallery__product-price mb-2">Цена: 20 грн</p>
-                            <button class="btn section-gallery__order-btn">Добавить в корзину</button>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
-                        <div class="section-gallery__card-content-wrapper">
-                            <div class="section-gallery__product-image-block drinks mb-3">
-                            </div>
-                            <p class="section-gallery__product-title mb-2">Pepsi 0,33л.</p>
-                            <p class="section-gallery__product-price mb-2">Цена: 20 грн</p>
-                            <button class="btn section-gallery__order-btn">Добавить в корзину</button>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
-                        <div class="section-gallery__card-content-wrapper">
-                            <div class="section-gallery__product-image-block drinks mb-3">
-                            </div>
-                            <p class="section-gallery__product-title mb-2">Pepsi 0,33л.</p>
-                            <p class="section-gallery__product-price mb-2">Цена: 20 грн</p>
-                            <button class="btn section-gallery__order-btn">Добавить в корзину</button>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
-                        <div class="section-gallery__card-content-wrapper">
-                            <div class="section-gallery__product-image-block drinks mb-3">
-                            </div>
-                            <p class="section-gallery__product-title mb-2">Pepsi 0,33л.</p>
-                            <p class="section-gallery__product-price mb-2">Цена: 20 грн</p>
-                            <button class="btn section-gallery__order-btn">Добавить в корзину</button>
-                        </div>
-                    </div>
+                <div class="pagination">
+                    <span class="pagination__item pagination__item_active">
+                        <a href="#">1</a>
+                    </span>
+                    <span class="pagination__item">
+                        <a href="#">2</a>
+                    </span>
+                    <span class="pagination__item">
+                        <a href="#">3</a>
+                    </span>
                 </div>
             </main>
 
@@ -287,11 +216,7 @@
                         </div>
                     </div>
                 </div>
-
             </footer>
         </div>
-
-        <script src="js/slider-cards.js"></script>
-        <script src="js/slider.js"></script>
     </body>
 </html>
