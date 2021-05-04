@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Food-o-mart</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="css/cart_page.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/fonts.css">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="container-fluid header mb-2">
+                <div class="row header__content-wrapper">
+                    <div class="col-sm-4 contacts-container">
+                        <p class="contacts-phone">+38(098)111-22-33</p>
+                        <p class="contacts-email">
+                            <a class="contacts-email-link" href="foodomart@gmail.com">foodomart@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-sm-4 header__logo-container d-flex justify-content-center">
+                        <a href="#">
+                            <img class="header__logo" src="img/logo.svg" alt="logo">
+                        </a>
+                    </div>
+                    <div class="col-sm-8 col-md-4 header__actions-container d-flex justify-content-end">
+                        <form class="form-inline">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="header__btn-search" type="submit">
+                                <img class="header__btn-search-icon" src="img/loupe.png" alt="loupe icon">
+                            </button>
+                        </form>
+                        <div class="header__cart-container">
+                            <img src="img/cart.png" alt="cart icon">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row header__nav-content_wrapper">
+                    <div class="header__nav">
+                        <ul class="d-flex header__nav-list">
+                            <li class="header__nav-list-item mr-2">
+                                <a class="header__nav-list-link" href="#">food</a>
+                            </li>
+                            <li class="header__nav-list-item mr-2">
+                                <a class="header__nav-list-link" href="#">drinks</a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a class="header__nav-list-link" href="#">other</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+            </header>
+
+            <aside class="container-fluid">
+                <p class="pagination">
+                    <a class="pagination__item" href="#">Главная</a>
+                    <span class="pagination__items-divider">></span>
+                    <a class="pagination__item" href="#">Корзина</a>
+                </p>
+            </aside>
+
+            <main class="container-fluid cart__container">
+                <h2 class="cart__heading mb-3">Корзина</h2>
+                <div class="row">
+                    
+                    <div class="d-flex cart_table-heading col-sm-12 mb-4">
+                        <div class="cart__table-column-title col-sm-6">Наименование</div>
+                        <div class="cart__table-column-title cart__table-column-price col-sm-3">Цена</div>
+                        <div class="cart__table-column-title col-sm-2">Сумма</div>
+                        <div class="cart__table-column-title col-sm-1">Удалить</div>
+                    </div>
+
+                    <div class="cart__item-container">
+                        <img class="col-sm-2 cart__item-img" src="img/pizza.jpg" alt="product image">
+                        <p class="col-sm-4 cart__item-title">Пицца Карбонара</p>
+                        <p class="col-sm-1 cart__item-price">120 грн</p>
+                        <div class="col-sm-2 product-describe__counter">
+                            <button class="btn product-describe__counter-btn">-</button>
+                            <div class="product-describe__quantity">1</div>
+                            <button class="btn product-describe__counter-btn">+</button>
+                        </div>
+                        <p class="col-sm-2 cart__item-total-price">120 грн</p>
+                        <div class="col-sm-1 cart__item-delete-btn-wrapper">
+                            <button class="cart__item-delete-btn">
+                                <img class="cart__item-delete-btn-cross" src="img/cross-button.png" alt="cross icon">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cart__item-container">
+                        <img class="col-sm-2 cart__item-img" src="img/pizza.jpg" alt="product image">
+                        <p class="col-sm-4 cart__item-title">Пицца Карбонара</p>
+                        <p class="col-sm-1 cart__item-price">120 грн</p>
+                        <div class="col-sm-2 product-describe__counter">
+                            <button class="btn product-describe__counter-btn">-</button>
+                            <div class="product-describe__quantity">2</div>
+                            <button class="btn product-describe__counter-btn">+</button>
+                        </div>
+                        <p class="col-sm-2 cart__item-total-price">240 грн</p>
+                        <div class="col-sm-1 cart__item-delete-btn-wrapper">
+                            <button class="cart__item-delete-btn">
+                                <img class="cart__item-delete-btn-cross" src="img/cross-button.png" alt="cross icon">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="cart__item-container">
+                        <img class="col-sm-2 cart__item-img" src="img/pizza.jpg" alt="product image">
+                        <p class="col-sm-4 cart__item-title">Пицца Карбонара</p>
+                        <p class="col-sm-1 cart__item-price">120 грн</p>
+                        <div class="col-sm-2 product-describe__counter">
+                            <button class="btn product-describe__counter-btn">-</button>
+                            <div class="product-describe__quantity">1</div>
+                            <button class="btn product-describe__counter-btn">+</button>
+                        </div>
+                        <p class="col-sm-2 cart__item-total-price">120 грн</p>
+                        <div class="col-sm-1 cart__item-delete-btn-wrapper">
+                            <button class="cart__item-delete-btn">
+                                <img class="cart__item-delete-btn-cross" src="img/cross-button.png" alt="cross icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart__total-price-container">
+                    <div class="cart__total-price-content">
+                        <p class="cart__total-price-text">Итого:</p>
+                        <p class="cart__total-price">480 грн</p>
+                        <button class="btn">Оформить заказ</button>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="container-fluid footer">
+                <div class="row footer__content-wrapper">
+                    <div class="col-xs-12 col-lg-3 contacts-container">
+                        <p class="footer__contacts-phone contacts-phone">+38(098)111-22-33</p>
+                        <p class="contacts-email contacts-email">
+                            <a class="footer__contacts-email-link contacts-email-link" href="foodomart@gmail.com">foodomart@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-lg-6 footer__nav">
+                        <span class="footer__nav-link">
+                            <a href="">Политика конфиденциальности и оферта</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Пользовательское соглашение</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Условия обмена и возврата</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Обратная связь</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Оплата</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Контакты</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Доставка</a>
+                        </span>
+                        <span class="footer__nav-link">
+                            <a href="">Блог</a>
+                        </span>
+                    </div>
+                    <div class="col-xs-12 col-lg-3 footer__social-links-container">
+                        <div class="footer__fb-link">
+                            <a href="#">
+                                <img class="footer__social-icon" src="img/fb.png" alt="facebook icon" />  
+                                <div class="footer__icon-shadow"></div>  
+                            </a>
+                        </div>
+                        <div class="footer__vk-link">
+                            <a href="#">
+                                <img class="footer__social-icon" src="img/vk.png" alt="vkontakte icon" />
+                                <div class="footer__icon-shadow"></div>
+                            </a>    
+                        </div>
+                        <div class="footer__insta-link">
+                            <a href="#">
+                                <img class="footer__social-icon" src="img/insta.png" alt="instagram icon" />
+                                <div class="footer__icon-shadow"></div>
+                            </a>    
+                        </div>
+                        <div class="footer__youtube-link">
+                            <a href="#">
+                                <img class="footer__social-icon" src="img/ytube.png" alt="youtube icon" />
+                                <div class="footer__icon-shadow"></div>
+                            </a>    
+                        </div>
+                        <div class="footer__twitter-link">
+                            <a href="#">
+                                <img class="footer__social-icon" src="img/twit.png" alt="twitter icon" />
+                                <div class="footer__icon-shadow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
