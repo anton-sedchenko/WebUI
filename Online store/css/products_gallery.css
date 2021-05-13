@@ -13,6 +13,7 @@
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
+	height: 100%;
 }
 
 .section-gallery__card-content-wrapper:hover {
@@ -21,16 +22,14 @@
 
 .section-gallery__product-image-block {
 	height: 200px;
-	background-image: url("../img/pizza.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-.drinks {
-	background-image: url("../img/pepsi.png");
 }
 
 .section-gallery__product-image {
+	width: 100%;
+	height: 100%;
+}
+
+.section-gallery__card-descr {
 	height: 100%;
 }
 

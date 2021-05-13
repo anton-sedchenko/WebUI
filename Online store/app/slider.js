@@ -1,6 +1,4 @@
-'use strict';
-
-class Slider {
+export default class Slider {
     constructor (sliderCards) {
         this.sliderCards = sliderCards;
         this.direction = -1;
@@ -29,7 +27,7 @@ class Slider {
 
         let slideItemArr = slideLine.querySelectorAll('.slider-item');
 
-        this.slidesDataArr = sliderCards.concat();
+        this.slidesDataArr = this.sliderCards.concat();
         leftBtnEl.addEventListener('click', this.left.bind(this), false);
         rightBtnEl.addEventListener('click', this.right.bind(this), false);
         slideLine.addEventListener('transitionend', this.slideTransfer.bind(this), false);
@@ -131,9 +129,3 @@ class Slider {
         slideLine.style.transform = `translate(-${this.shift})`;  
     }
 }
-
-let slider = new Slider(sliderCards);
-
-window.onload = function() {
-    slider.init();
-};
