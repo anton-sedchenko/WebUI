@@ -14,10 +14,16 @@ export default class ViewProducts {
 						<div class="section-gallery__product-image-block mb-3">
 	                    	<img class="section-gallery__product-image" src=${ IMG_LINK } alt="${ PRODUCT_NAME }">
 	                    </div>
-	                    <p class="section-gallery__product-title mb-2">${ PRODUCT_NAME }</p>
-	                    <span>Units: ${ UNITS }</span>
-	                    <span>Category: ${ CATEGORY }</span>
-	                    <p class="section-gallery__product-price mb-2">Price: ${ PRICE } uah</p>
+	                    <p class="section-gallery__product-title fs-3 fw-bold mb-2">${ PRODUCT_NAME }</p>
+	                    <p class="section-gallery__product-units">Units: 
+	                    	<span>${ UNITS }</span>
+	                    </p>
+	                    <p class="section-gallery__product-category">Category: 
+	                    	<span>${ CATEGORY }</span>
+	                    </p>
+	                    <p class="section-gallery__product-price mb-2">Price:
+	                    	<span>${ PRICE } uah</span>
+	                    </p>
                 	</div>
                     <button class="btn section-gallery__order-btn">Добавить в корзину</button>
                 </div>
