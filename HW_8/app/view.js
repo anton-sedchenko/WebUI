@@ -5,7 +5,8 @@ export default class View {
 		document.querySelector('.btn-search-city').addEventListener('click', handleClickSearch);
 	}
 
-	getCity() {
+	getCity(evt) {
+		evt.preventDefault();
 		const city = document.querySelector('.form-control').value;
 		return city;
 	}
