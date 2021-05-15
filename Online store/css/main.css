@@ -19,12 +19,24 @@ body,table,video,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,pre,a,abbr,ac
 
 body {
 	background-color: #F8F8F8;
+	position: relative;
 }
 
 .wrapper {
 	max-width: 1140px;
 	margin: 0 auto;
 	background-color: #F8F8F8;
+}
+
+.shadow {
+	position: absolute;
+	z-index: 4000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding-top: 50px;
 }
 
 .btn {

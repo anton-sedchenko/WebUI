@@ -1,11 +1,13 @@
 @import 'fonts.css';
-@import 'header.css';
 @import 'product_page.css';
-@import 'footer.css';
 
-.cart__container {
+.cart__content-container {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
 	min-height: 420px;
-	padding: 0;
+	background-color: #F8F8F8;
+	padding: 20px;
 }
 
 .cart__heading {

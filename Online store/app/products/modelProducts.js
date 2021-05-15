@@ -30,6 +30,7 @@ export default class ModelProducts {
 					k++;
 				}
 				this.#data = products;
+				console.log(this.data);
 				return this.data;
 			});
 	}
