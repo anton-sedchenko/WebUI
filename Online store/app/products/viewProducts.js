@@ -1,13 +1,17 @@
 export default class ViewProducts {
-	constructor() {
+	orderBtnsClass = '.section-gallery__order-btn';
+
+	constructor(onClickAddToCart) {
 		this.dom = document.querySelector('.section-gallery__content');
+		this.onClickAddToCart = onClickAddToCart;
 	}
 
 	render(d) {
 		this.dom.innerHTML = d.map(el => this.renderCard(el)).join('');
+		this.addlisteners();
 	}
 
-	renderCard({ IMG_LINK, PRODUCT_NAME, UNITS, CATEGORY, PRICE }) {
+	renderCard({ IMG_LINK, PRODUCT_NAME, UNITS, CATEGORY, PRICE, ID }) {
 		return `<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 section-gallery__card p-2">
                 <div class="section-gallery__card-content-wrapper">
                 	<div class="section-gallery__card-descr">
@@ -25,8 +29,13 @@ export default class ViewProducts {
 	                    	<span>${ PRICE } uah</span>
 	                    </p>
                 	</div>
-                    <button class="btn section-gallery__order-btn">Добавить в корзину</button>
+                    <button class="btn section-gallery__order-btn" data-id="${ ID }">Добавить в корзину</button>
                 </div>
             </div>`
+	}
+
+	addlisteners() {
+		[...document.querySelectorAll(this.orderBtnsClass)]
+			.forEach(btn => btn.addEventListener('click', this.onClickAddToCart));
 	}
 }

@@ -36,6 +36,14 @@ export default class ModelProducts {
 	}
 
 	get data() {
-		return  JSON.parse(JSON.stringify(this.#data));
+		return this.copy(this.#data);
+	}
+
+	getProductById(id) {
+		return this.copy(this.data.find(item => item.ID === id));
+	}
+
+	copy(product) {
+		return JSON.parse(JSON.stringify(product));
 	}
 }
