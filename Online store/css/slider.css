@@ -1,10 +1,15 @@
 .promo-slider__container {
-    height: 427px;
+    min-height: 427px;
 }
 
 .slider-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.slide-photo-container {
+    display: flex;
     align-items: center;
 }
 
@@ -54,10 +59,6 @@
     display: flex;
     width: 560px;
     height: auto;
-}
-
-.slide-picture {
-    height: 100%;
 }
 
 /* xs, sm (<=768px) */

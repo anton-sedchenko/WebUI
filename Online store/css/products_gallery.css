@@ -1,3 +1,53 @@
+.section-gallery__filter-options-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.section-gallery__filter-btn-search {
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+    right: 3px;
+	width: 35px;
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none !important;
+	background: none;
+}
+
+.section-gallery__filter-options-divider {
+	margin: 0 20px;
+}
+
+.section-gallery__filter-option {
+	color: #4D4949;
+}
+
+.section-gallery__filter-option:hover {
+	text-decoration: none;
+	color: #4D7070;
+}
+
+.section-gallery__filter-search-wrapper {
+	position: relative;
+}
+
+.section-gallery__filter-btn-search:active {
+	width: 30px;
+	height: 30px;
+}
+
+.filter-btn-search-icon {
+	height: 100%;
+	width: 100%;
+}
+
+
 .section-gallery__title {
 	font-size: 26px !important;
 }

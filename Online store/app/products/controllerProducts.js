@@ -12,7 +12,8 @@ export default class ControllerProducts {
 
 	load() {
 		this.model.load()
-			.then(d => this.view.render(d));
+			.then(d => this.view.render(d))
+			.then(() => this.filterLoad());
 	}
 
 	onClickAddToCart = (evt) => {
@@ -20,5 +21,13 @@ export default class ControllerProducts {
 		const product = this.model.getProductById(id);
 
 		this.publisher.notify('ADD_TO_CART', product);
+	}
+
+	filterLoad() {
+		const passData = {};
+		passData.categories = this.model.getAllCategories();
+		passData.data = this.model.data;
+
+		this.publisher.notify('GET_CATEGORIES', passData);
 	}
 }

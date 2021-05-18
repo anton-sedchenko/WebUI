@@ -47,37 +47,14 @@
                         </a>
                     </div>
                     <div class="col-sm-8 col-md-4 header__actions-container d-flex justify-content-end">
-                        <form class="form-inline">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button class="header__btn-search" type="submit">
-                                <img class="header__btn-search-icon" src="img/loupe.png" alt="loupe icon">
-                            </button>
-                        </form>
                         <div class="header__cart-container">
                             <img src="img/cart.png" alt="cart icon">
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="row header__nav-content_wrapper">
-                    <div class="header__nav">
-                        <ul class="d-flex header__nav-list">
-                            <li class="header__nav-list-item mr-2">
-                                <a class="header__nav-list-link" href="#">food</a>
-                            </li>
-                            <li class="header__nav-list-item mr-2">
-                                <a class="header__nav-list-link" href="#">drinks</a>
-                            </li>
-                            <li class="header__nav-list-item">
-                                <a class="header__nav-list-link" href="#">other</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <hr>
             </header>
 
-            <aside class="container-fluid promo-slider__container mb-5">
+            <aside class="container-fluid promo-slider__container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-sm-11 col-xl-8 slider-container">
                         <div class="arrow-left-container">
@@ -107,19 +84,19 @@
                         <div class="section-rules__image-container section-rules__delivery-image-block mb-3">
                             <img class="section-rules__image" src="img/delivery.png" alt="delivery icon">
                         </div>
-                        <p>Бесплатная доставка от суммы заказа 200 грн</p>
+                        <p>Free delivery from the order amount 200 UAH</p>
                     </div>
                     <div class="col-md-4 section-rules__block">
                         <div class="section-rules__image-container section-rules__payment-image-block mb-3">
                             <img class="section-rules__image" src="img/wallet.png" alt="wallet icon">
                         </div>
-                        <p>Оплата наличными или по карте при получении заказа</p>
+                        <p>Payment in cash or by card upon receipt of the order</p>
                     </div>
                     <div class="col-md-4 section-rules__block">
                         <div class="section-rules__image-container section-rules__order-image-block mb-3">
                             <img class="section-rules__image" src="img/phone.png" alt="phone icon">
                         </div>
-                        <p>Заказы принимаются круглосуточно в праздники и выходные</p>
+                        <p>Orders are accepted around the clock on holidays and weekends</p>
                     </div>
                 </div>
             </section>
@@ -127,7 +104,35 @@
             <hr>
 
             <main class="container-fluid section-gallery">
-                <div class="row section-gallery__content">        
+
+                <hr>
+                <div class="row section-gallery__filter-container">
+                    <div class="section-gallery__filter-options-container">
+                        <div class="mb-3">
+                            <a class="section-gallery__filter-option" href="#">Сheap first</a>
+                            <span class="section-gallery__filter-options-divider">/</span>
+                            <a class="section-gallery__filter-option" href="#">Expensive first</a>    
+                        </div>
+                        
+                        <p class="section-gallery__filter-search-wrapper mb-3">
+                            <input class="form-control" type="search" placeholder="Search by name" aria-label="Search">
+                            <button class="section-gallery__filter-btn-search" type="submit">
+                                <img class="filter-btn-search-icon" src="img/loupe.png" alt="loupe icon">
+                            </button>
+                        </p>
+                        <p class="mb-3">
+                            <select class="category-filter" size="1">
+                                <option selected disabled>Filter by category</option>
+                             </select>
+                            <input type="submit" value="Filter">
+                        </p>
+                        <a class="section-gallery__filter-option" href="#">Reset filter</a>
+                    </div>
+                    
+                </div>
+                <hr>
+
+                <div class="row section-gallery__content">
                 </div>
             </main>
 

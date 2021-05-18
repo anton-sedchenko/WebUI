@@ -1,6 +1,7 @@
 export default class ModelProducts {
 	#apiUrl = 'https://spreadsheets.google.com/feeds/cells/1PXorfz2O2NqH-FcW0nA-HhmtZMmSSwgHheifWc0e1tU/1/public/full?alt=json';
 	#data = [];
+	#categories = [];
 
 	constructor() {
 		
@@ -43,7 +44,21 @@ export default class ModelProducts {
 		return this.copy(this.data.find(item => item.ID === id));
 	}
 
+	getAllCategories() {
+		const categories = new Set();
+
+		this.data.forEach(item => categories.add(item.CATEGORY));
+		this.#categories = [...categories];
+
+		return this.#categories;
+	}
+
 	copy(product) {
 		return JSON.parse(JSON.stringify(product));
+	}
+
+	// Здесь метод, который выбирает из всех продуктов по фильтру.
+	getFilteredProducts(filterRequest) {
+		return this.data.filter(item => filterRequest === item.Category);
 	}
 }
