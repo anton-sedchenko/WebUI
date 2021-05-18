@@ -1,7 +1,7 @@
 @import 'fonts.css';
 @import 'product_page.css';
 
-.cart-modal-window {
+.product__modal-window {
 	position: absolute;
 	z-index: 4000;
 	top: 0;
@@ -12,7 +12,7 @@
 	padding: 50px 0;
 }
 
-.cart__content-container {
+.product__content-container {
 	max-height: 700px;
 	overflow: auto;
 	position: fixed;
@@ -23,35 +23,35 @@
 	padding: 20px;
 }
 
-.cart__heading {
+.product__heading {
 	font-size: 26px !important;
 }
 
-.cart__table-column-title {
+.product__table-column-title {
 	text-align: center;
 }
 
-.cart__table-column-price {
+.product__table-column-price {
 	display: flex;
 	justify-content: flex-start;
 }
 
-.cart__item-container {
+.product__item-container {
 	height: 100px;
 	display: flex;
 	align-items: center;
 	margin-bottom: 30px;
 }
 
-.cart__item-img {
+.product__item-img {
 	height: 100%;
 }
 
-.cart__item-title {
+.product__item-title {
 	font-size: 20px !important;
 }
 
-.cart__item-price {
+.product__item-price {
 	display: flex;
 	justify-content: flex-end;
 }
@@ -61,17 +61,17 @@
 	justify-content: flex-end;
 }
 
-.cart__item-total-price {
+.product__item-total-price {
 	display: flex;
 	justify-content: center;
 }
 
-.cart__item-delete-btn-wrapper {
+.product__item-delete-btn-wrapper {
 	display: flex;
 	justify-content: center;
 }
 
-.cart__item-delete-btn {
+.product__item-delete-btn {
 	position: relative;
 	padding: 0;
 	width: 30px;
@@ -80,11 +80,11 @@
 	outline: none;
 }
 
-.cart__item-delete-btn:focus {
+.product__item-delete-btn:focus {
 	outline: none;
 }
 
-.cart__item-delete-btn-cross {
+.product__item-delete-btn-cross {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -92,29 +92,29 @@
 	border-radius: 10px;
 }
 
-.cart__item-delete-btn-cross:hover {
+.product__item-delete-btn-cross:hover {
 	box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-.cart__item-delete-btn-cross:active {
+.product__item-delete-btn-cross:active {
 	height: 26px;
 	width: 26px;
 }
 
-.cart__total-price-container {
+.product__total-price-container {
 	display: flex;
 	justify-content: flex-end;
 }
 
-.cart__total-price-content {
+.product__total-price-content {
 	width: 200px;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 30px;
 }
 
-.cart__total-price-text,
-.cart__total-price {
+.product__total-price-text,
+.product__total-price {
 	font-size: 26px !important;
 	margin-bottom: 20px;
 }

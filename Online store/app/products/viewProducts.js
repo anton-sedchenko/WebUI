@@ -43,7 +43,8 @@ export default class ViewProducts {
 	                    	<span>${ PRICE } uah</span>
 	                    </p>
                 	</div>
-                    <button class="btn section-gallery__order-btn" data-id="${ ID }">Добавить в корзину</button>
+                    <button class="btn section-gallery__details-btn mb-2" data-id="${ ID }">More details...</button>
+                    <button class="btn section-gallery__order-btn" data-id="${ ID }">Add to cart</button>
                 </div>
             </div>`
 	}

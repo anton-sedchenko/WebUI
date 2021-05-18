@@ -2,7 +2,7 @@ export default class ViewCart {
 	constructor(handleRemoveFromCart) {
 		this.domProductsContainer = document.querySelector('.cart__products-container');
 		this.domCartBtn = document.querySelector('.header__cart-container');
-		this.domCartContainer = document.querySelector('.shadow');
+		this.domCartContainer = document.querySelector('.cart-modal-window');
 		this.domBody = document.querySelector('body');
 		this.domCartBtn.addEventListener('click', this.onClickRenderCart);
 		this.domCartContainer.addEventListener('click', this.onClickCloseCart);
