@@ -3,10 +3,11 @@ import ModelFilter from './ModelFilter.js';
 
 export default class ControllerFilter {
 	constructor(publisher) {
-		this.view = new ViewFilter();
+		this.view = new ViewFilter(this.onClickFilterCategories);
 		this.model = new ModelFilter();
 
-		publisher.subscribe('GET_CATEGORIES', this.handleFilterLoad);
+		this.publisher = publisher;
+		this.publisher.subscribe('GET_CATEGORIES', this.handleFilterLoad);
 	}
 
 	handleFilterLoad = ({ categories, data }) => {
@@ -16,20 +17,15 @@ export default class ControllerFilter {
 		this.model.data = data;
 	}
 
-	filterCheapFirst() {
-		return this.model.data.sort(this.sortItemsASC);
-	}
+	onClickFilterCategories = () => {
+		const filterInput = this.view.domCategoryFilter.value;
+		const initialInputValue = 'Filter by category';
+		let filteredData = [];
 
-	filterExpensiveFirst() {
-		return this.model.data.sort(this.sortItemsDESC);
-	}
+		if (filterInput !== initialInputValue) {
+			filteredData = this.model.getFilteredDataByCategory(filterInput);
+		}
 
-	sortItemsASC = (a, b) => a.PRICE - b.PRICE;
-
-	sortItemsDESC = (a, b) => b.PRICE - a.PRICE;
-
-	handleCategoriesFilter() {
-// при нажатии на кнопку сабмит доставать выбраный опшин, фильтровать по нему и передавать в продактс для рендера.
+		this.publisher.notify('GET_DATA_BY_CATEGORIES', filteredData);
 	};
-
 }

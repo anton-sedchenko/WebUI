@@ -4,10 +4,17 @@ import ViewProducts from './viewProducts.js';
 export default class ControllerProducts {
 	constructor(Publisher) {
 		this.model = new ModelProducts();
-		this.view = new ViewProducts(this.onClickAddToCart);
+		this.view = new ViewProducts(this.onClickAddToCart, 
+			this.onClickFilterCheapFirst,
+			this.onClickFilterExpensiveFirst,
+			this.onClickSearchByName,
+			this.onClickResetFilter);
 
 		this.load();
 		this.publisher = Publisher;
+		this.publisher.subscribe('GET_DATA_BY_CATEGORIES', 
+			this.handleDataFilteredByCategories);
+
 	}
 
 	load() {
@@ -29,5 +36,35 @@ export default class ControllerProducts {
 		passData.data = this.model.data;
 
 		this.publisher.notify('GET_CATEGORIES', passData);
+	}
+
+	handleDataFilteredByCategories = (filteredData) => {
+		this.model.currentPageData = filteredData;
+		this.view.render(filteredData);
+	}
+
+	onClickFilterCheapFirst = () => {
+		const currentPageData = this.model.currentPageData;
+		const sortedData = this.model.filterCheapFirst(currentPageData);
+
+		this.view.render(sortedData);
+	}
+
+	onClickFilterExpensiveFirst = () => {
+		const currentPageData = this.model.currentPageData;
+		const sortedData = this.model.filterExpensiveFirst(currentPageData)
+
+		this.view.render(sortedData);
+	}
+
+	onClickSearchByName = () => {
+		const searchRequest = this.view.getSearchValue();
+		const filteredData = this.model.filterDataByName(searchRequest);
+
+		this.view.render(filteredData);
+	}
+
+	onClickResetFilter = () => {
+		this.view.render(this.model.data);
 	}
 }

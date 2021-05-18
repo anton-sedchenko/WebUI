@@ -23,4 +23,8 @@ export default class ModelFilter {
 	copy(product) {
 		return JSON.parse(JSON.stringify(product));
 	}
+
+	getFilteredDataByCategory(filterInput) {
+		return this.data.filter(item => item.CATEGORY === filterInput);
+	}
 }

@@ -1,9 +1,23 @@
 export default class ViewProducts {
-	orderBtnsClass = '.section-gallery__order-btn';
+	#orderBtnsClass = '.section-gallery__order-btn';
 
-	constructor(onClickAddToCart) {
+	constructor(onClickAddToCart, 
+		onClickFilterCheapFirst, 
+		onClickFilterExpensiveFirst, 
+		onClickSearchByName,
+		onClickResetFilter) {
 		this.dom = document.querySelector('.section-gallery__content');
+		this.domFilterByName = document.querySelector('.filter-by-name');
+		this.domFilterNameSearchBtn = document.querySelector('.filter-btn-search-icon');
 		this.onClickAddToCart = onClickAddToCart;
+		this.onClickFilterCheapFirst = onClickFilterCheapFirst;
+		this.onClickFilterExpensiveFirst = onClickFilterExpensiveFirst;
+		this.onClickSearchByName = onClickSearchByName;
+		this.onClickResetFilter = onClickResetFilter;
+
+		this.addFilterByPriceListeners();
+		this.addFilterByNameListener();
+		this.addFilterResetBtnListener();
 	}
 
 	render(d) {
@@ -35,7 +49,31 @@ export default class ViewProducts {
 	}
 
 	addlisteners() {
-		[...document.querySelectorAll(this.orderBtnsClass)]
+		[...document.querySelectorAll(this.#orderBtnsClass)]
 			.forEach(btn => btn.addEventListener('click', this.onClickAddToCart));
+	}
+
+	addFilterByPriceListeners() {
+		document.querySelector('.filter-cheap-first').addEventListener('click', 
+			this.onClickFilterCheapFirst);
+		document.querySelector('.filter-expensive-first').addEventListener('click', 
+			this.onClickFilterExpensiveFirst);
+	}
+
+	addFilterByNameListener() {
+		document.querySelector('.filter-btn-search-icon').addEventListener('click', 
+			this.onClickSearchByName);
+	}
+
+	addFilterResetBtnListener() {
+		document.querySelector('.filter-reset-btn').addEventListener('click', 
+			this.onClickResetFilter);
+	}
+
+	getSearchValue() {
+		const value = this.domFilterByName.value;
+		this.domFilterByName.value = '';
+
+		return value;
 	}
 }

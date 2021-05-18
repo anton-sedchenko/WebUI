@@ -1,6 +1,7 @@
 export default class ModelProducts {
 	#apiUrl = 'https://spreadsheets.google.com/feeds/cells/1PXorfz2O2NqH-FcW0nA-HhmtZMmSSwgHheifWc0e1tU/1/public/full?alt=json';
 	#data = [];
+	#currentPageData = [];
 	#categories = [];
 
 	constructor() {
@@ -31,6 +32,7 @@ export default class ModelProducts {
 					k++;
 				}
 				this.#data = products;
+				this.#currentPageData = products;
 				console.log(this.data);
 				return this.data;
 			});
@@ -38,6 +40,14 @@ export default class ModelProducts {
 
 	get data() {
 		return this.copy(this.#data);
+	}
+
+	get currentPageData() {
+		return this.copy(this.#currentPageData);
+	}
+
+	set currentPageData(filteredData) {
+		this.#currentPageData = filteredData;
 	}
 
 	getProductById(id) {
@@ -57,8 +67,28 @@ export default class ModelProducts {
 		return JSON.parse(JSON.stringify(product));
 	}
 
-	// Здесь метод, который выбирает из всех продуктов по фильтру.
-	getFilteredProducts(filterRequest) {
-		return this.data.filter(item => filterRequest === item.Category);
+	getFilteredProducts(filterCategory) {
+		return this.data.filter(item => filterCategory === item.Category);
+	}
+
+	filterCheapFirst(currentPageData) {
+		return this.currentPageData.sort(this.sortItemsASC);
+	}
+
+	filterExpensiveFirst(currentPageData) {
+		return this.currentPageData.sort(this.sortItemsDESC);
+	}
+
+	sortItemsASC = (a, b) => a.PRICE - b.PRICE;
+	sortItemsDESC = (a, b) => b.PRICE - a.PRICE;
+
+	filterDataByName(searchRequest) {
+		const regEx = new RegExp(`${ searchRequest }`, 'i');
+
+		const filteredData = this.data.filter(item => {
+			return regEx.test(item.PRODUCT_NAME) || regEx.test(item.MANUFACTURE);
+		});
+
+		return filteredData;
 	}
 }

@@ -1,7 +1,9 @@
 export default class ViewFilter {
-	constructor(handleCategoriesFilter) {
+	constructor(onClickFilterCategories) {
+		this.domFilterCategoryBtn = document.querySelector('.category-filter-submit-btn');
 		this.domCategoryFilter = document.querySelector('.category-filter');
-		this.domCategoryFilter.addEventListener('change', handleCategoriesFilter);
+		this.domFilterResetBtn = document.querySelector('.filter-reset-btn');
+		this.onClickFilterCategories = onClickFilterCategories;
 	}
 
 	render(categories) {
@@ -9,7 +11,14 @@ export default class ViewFilter {
 			this.domCategoryFilter.insertAdjacentHTML('beforeEnd', 
 				`<option>${ categories[i] }</option>`);
 		}
+
+		this.addlisteners();
 	}
 
-
+	addlisteners() {
+		this.domFilterCategoryBtn.addEventListener('click', this.onClickFilterCategories);
+		this.domFilterResetBtn.addEventListener('click', () => {
+			this.domCategoryFilter.firstElementChild.selected = true;
+		});
+	}
 }
