@@ -7,7 +7,6 @@ export default class ViewCart {
 		this.domCartBtn.addEventListener('click', this.onClickRenderCart);
 		this.domCartContainer.addEventListener('click', this.onClickCloseCart);
 		this.domCartContainer.addEventListener('click', handleRemoveFromCart);
-
 	}
 
 	onClickRenderCart = () => {
@@ -25,30 +24,94 @@ export default class ViewCart {
 		}
 	}
 
+	onClickSumPriceChange = (evt) => {
+		const productId = evt.target.dataset.id;
+		const domProductCounters = [...document.querySelectorAll('.product-describe__quantity')];
+		const domProductSums = [...document.querySelectorAll('.cart__product-sum')];
+		const domProductPrices = [...document.querySelectorAll('.cart__product-price')];
+
+		const domCounter = domProductCounters.find(item => {
+			return productId === item.dataset.id;
+		});
+		const domProductPrice = domProductPrices.find(item => {
+			return productId === item.dataset.id;
+		});
+		const domProductSum = domProductSums.find(item => {
+			return productId === item.dataset.id;
+		});
+
+		let productCounter = +domCounter.textContent;
+		const productPrice = +domProductPrice.textContent;
+		let currentSumOfProduct = +domProductSum.textContent;
+
+
+		if (evt.target.classList.contains('product-count-minus-btn')) {
+			if (productCounter === 1) return;
+			productCounter -= 1;
+			currentSumOfProduct -= productPrice;
+		} else {
+			productCounter += 1;
+			currentSumOfProduct += productPrice;
+		}
+
+		domCounter.innerHTML = productCounter;
+		domProductSum.innerHTML = currentSumOfProduct;
+		this.renderTotalPrice(productId);
+	}
+
+	renderTotalPrice() {
+		const domProductSums = [...document.querySelectorAll('.cart__product-sum')];
+		const domTotalPrice = document.querySelector('.cart__total-price');
+		const totalSum = domProductSums.reduce((sum, curr) => {
+			return sum + (+curr.textContent);
+		}, 0);
+
+		domTotalPrice.innerHTML = totalSum;
+	}
+
 	render(newProduct) {
 		this.domProductsContainer.innerHTML = newProduct.map(el => this.renderCartCard(el)).join('');
+		const allProductCounterBtns = document.querySelectorAll('.product-describe__counter-btn');
+
+		allProductCounterBtns.forEach(btn => {
+			btn.addEventListener('click', this.onClickSumPriceChange);
+		});
 	}
 
 	renderCartCard({ IMG_LINK, PRODUCT_NAME, UNITS, PRICE, ID }) {
 		return `
 			<div class="cart__item-container">
-                <img class="col-sm-2 cart__item-img" src=${ IMG_LINK } alt="${ PRODUCT_NAME }">
-                <p class="col-sm-3 cart__item-title">${ PRODUCT_NAME }</p>
-                <p class="col-sm-1 cart__item-units">${ UNITS }</p>
-                <p class="col-sm-1 cart__item-price">${ PRICE }</p>
-                <div class="col-sm-2 product-describe__counter">
-                    <button class="btn product-describe__counter-btn">-</button>
-                    <div class="product-describe__quantity">1</div>
-                    <button class="btn product-describe__counter-btn">+</button>
+				<div class="col-sm-9 cart__item">
+					<div class="col-sm-4 cart__item-img-container">
+						<img class="cart__item-img" src=${ IMG_LINK } alt="${ PRODUCT_NAME }">
+					</div>
+					<div class="col-sm-8 cart__item-describe">
+						<div class="cart__item-describe-top mb-2">
+			                <p class="cart__item-title mb-3">${ PRODUCT_NAME }</p>
+			                <p class="cart__item-units">${ UNITS }</p>
+			            </div>
+			            <div class="cart__item-describe-bottom">
+							<p class="mb-2">Price: 
+								<span class="cart__product-price" data-id="${ ID }">${ PRICE }</span> UAH
+							</p>
+			                <div class="product-describe__counter">
+			                    <button data-id="${ ID }" class="btn product-describe__counter-btn product-count-minus-btn">-</button>
+			                    <div data-id="${ ID }" class="product-describe__quantity">1</div>
+			                    <button data-id="${ ID }" class="btn product-describe__counter-btn product-count-plus-btn">+</button>
+			                </div>
+			            </div>
+					</div>
                 </div>
-                <p class="col-sm-2 cart__item-total-price">120 грн</p>
-                <div class="col-sm-1 cart__item-delete-btn-wrapper">
+                <div class="col-sm-2">
+	                <p>Sum: <span class="cart__product-sum" data-id="${ ID }">${ PRICE }</span> UAH</p>
+	            </div>
+	            <div class="col-sm-1 cart__item-delete-btn-wrapper">
                     <button class="cart__item-delete-btn">
                         <img class="cart__item-delete-btn-cross" 
                         src="img/cross-button.png" alt="cross icon" 
                         data-id="${ ID }">
                     </button>
-                </div>
+	            </div>
             </div>
 		`
 	}

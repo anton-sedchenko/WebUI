@@ -15,12 +15,14 @@ export default class ControllerCart {
 		let cart = this.model.loadFromLS();
 		
 		this.view.render(cart);
+		this.view.renderTotalPrice();
 	}
 
 	handleAddToCart = data => {
 		const newProduct = this.model.addProducts(data);
 
 		this.view.render(newProduct);
+		this.view.renderTotalPrice();
 	}
 
 	handleRemoveFromCart = evt => {
@@ -29,6 +31,7 @@ export default class ControllerCart {
 			const newCart = this.model.removeProductFromLS(id);
 
 			this.view.render(newCart);
+			this.view.renderTotalPrice(id);
 		}
 	}
 }
