@@ -1,55 +1,74 @@
 export default class ViewProductDetails {
 	constructor() {
-		// this.domProductsContainer = document.querySelector('.cart__products-container');
-		// this.domCartBtn = document.querySelector('.header__cart-container');
-		// this.domCartContainer = document.querySelector('.cart-modal-window');
-		// this.domBody = document.querySelector('body');
-		// this.domCartBtn.addEventListener('click', this.onClickRenderCart);
-		// this.domCartContainer.addEventListener('click', this.onClickCloseCart);
-		// this.domCartContainer.addEventListener('click', handleRemoveFromCart);
+		this.domProductDetailsWindow = document.querySelector('.product__modal-window');
+		this.domProductContainer = document.querySelector('.product__container');
+		this.domBody = document.querySelector('body');
+		this.domProductDetailsBtn = document.querySelector('.section-gallery__details-btn');
 
+		this.domProductDetailsWindow.addEventListener('click', 
+			this.onClickCloseProductDetailsWindow);
 	}
 
-	// onClickRenderCart = () => {
-	// 	this.domCartContainer.classList.toggle('close');
+	showProductDetailsWindow() {
+		this.domProductDetailsWindow.classList.toggle('close');
 
-	// 	if (!this.domCartContainer.classList.contains('close')) {
-	// 		this.domBody.style.overflow = 'hidden';
-	// 	}
-	// }
+		if (!this.domProductDetailsWindow.classList.contains('close')) {
+			this.domBody.style.overflow = 'hidden';
+		}
+	}
 
-	// onClickCloseCart = (evt) => {
-	// 	if (evt.target === this.domCartContainer) {
-	// 		this.domCartContainer.classList.toggle('close');
-	// 		this.domBody.style.overflow = 'auto';
-	// 	}
-	// }
+	onClickCloseProductDetailsWindow = (evt) => {
+		if (evt.target === this.domProductDetailsWindow) {
+			this.domProductDetailsWindow.classList.toggle('close');
+			this.domBody.style.overflow = 'auto';
+		}
+	}
 
-	// render(newProduct) {
-	// 	this.domProductsContainer.innerHTML = newProduct.map(el => this.renderCartCard(el)).join('');
-	// }
+	render(product) {
+		this.domProductContainer.innerHTML = product;
+	}
 
-	// renderCartCard({ IMG_LINK, PRODUCT_NAME, UNITS, PRICE, ID }) {
-	// 	return `
-	// 		<div class="cart__item-container">
- //                <img class="col-sm-2 cart__item-img" src=${ IMG_LINK } alt="${ PRODUCT_NAME }">
- //                <p class="col-sm-3 cart__item-title">${ PRODUCT_NAME }</p>
- //                <p class="col-sm-1 cart__item-units">${ UNITS }</p>
- //                <p class="col-sm-1 cart__item-price">${ PRICE }</p>
- //                <div class="col-sm-2 product-describe__counter">
- //                    <button class="btn product-describe__counter-btn">-</button>
- //                    <div class="product-describe__quantity">1</div>
- //                    <button class="btn product-describe__counter-btn">+</button>
- //                </div>
- //                <p class="col-sm-2 cart__item-total-price">120 грн</p>
- //                <div class="col-sm-1 cart__item-delete-btn-wrapper">
- //                    <button class="cart__item-delete-btn">
- //                        <img class="cart__item-delete-btn-cross" 
- //                        src="img/cross-button.png" alt="cross icon" 
- //                        data-id="${ ID }">
- //                    </button>
- //                </div>
- //            </div>
-	// 	`
-	// }
+	renderProductDetails(product) {
+		if (!product) return;
+
+		const productImg = product.IMG_LINK;
+		const productName = product.PRODUCT_NAME;
+		const productUnits = product.UNITS;
+		const productManufacture = product.MANUFACTURE;
+		const productCategory = product.CATEGORY;
+		const productIngridients = product.INGRIDIENTS;
+		const productPrice = product.PRICE;
+		const productAmount = product.AMOUNT;
+		const productId = product.ID;
+
+		return `
+			<div class="col-sm-11 product__image-container">
+                <img class="product-image" src=${ productImg } alt="milk">
+            </div>
+            <div class="col-sm-11 product__describe-text-container">
+                <p class="product__describe-title">Product name: 
+                    <span class="ml-2">${ productName }</span>
+                </p>
+                <p class="product__describe-title">Units: 
+                    <span class="ml-2">${ productUnits }</span>
+                </p>
+                <p class="product__describe-title">Price: 
+                    <span class="ml-2">${ productPrice }</span>
+                </p>
+                <hr>
+                <p class="product__describe-title">Category: 
+                    <span class="ml-2">${ productCategory }</span>
+                </p>
+                <p class="product__describe-title">Manufacture: 
+                    <span class="ml-2">${ productManufacture }</span>
+                </p>
+                <p class="product__describe-title">Ingridients: 
+                    <span class="ml-2">${ productIngridients }</span>
+                </p>
+                <p class="product__describe-title">Amount: 
+                    <span class="ml-2">${ productAmount }</span>
+                </p>
+            </div>
+            <button class="btn section-gallery__add-to-cart-btn" data-id="${ productId }">Add to cart</button>`
+	}
 }

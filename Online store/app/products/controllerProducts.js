@@ -8,7 +8,8 @@ export default class ControllerProducts {
 			this.onClickFilterCheapFirst,
 			this.onClickFilterExpensiveFirst,
 			this.onClickSearchByName,
-			this.onClickResetFilter);
+			this.onClickResetFilter,
+			this.onClickRenderProductDetails);
 
 		this.load();
 		this.publisher = Publisher;
@@ -28,6 +29,13 @@ export default class ControllerProducts {
 		const product = this.model.getProductById(id);
 
 		this.publisher.notify('ADD_TO_CART', product);
+	}
+
+	onClickRenderProductDetails = (evt) => {
+		const id = evt.target.dataset.id;
+		const product = this.model.getProductById(id);
+
+		this.publisher.notify('SHOW_PRODUCT_DETAILS_WINDOW', product);
 	}
 
 	filterLoad() {

@@ -1,11 +1,10 @@
 export default class ViewProducts {
-	#orderBtnsClass = '.section-gallery__order-btn';
-
 	constructor(onClickAddToCart, 
 		onClickFilterCheapFirst, 
 		onClickFilterExpensiveFirst, 
 		onClickSearchByName,
-		onClickResetFilter) {
+		onClickResetFilter,
+		onClickRenderProductDetails) {
 		this.dom = document.querySelector('.section-gallery__content');
 		this.domFilterByName = document.querySelector('.filter-by-name');
 		this.domFilterNameSearchBtn = document.querySelector('.filter-btn-search-icon');
@@ -14,6 +13,7 @@ export default class ViewProducts {
 		this.onClickFilterExpensiveFirst = onClickFilterExpensiveFirst;
 		this.onClickSearchByName = onClickSearchByName;
 		this.onClickResetFilter = onClickResetFilter;
+		this.onClickRenderProductDetails = onClickRenderProductDetails;
 
 		this.addFilterByPriceListeners();
 		this.addFilterByNameListener();
@@ -44,14 +44,16 @@ export default class ViewProducts {
 	                    </p>
                 	</div>
                     <button class="btn section-gallery__details-btn mb-2" data-id="${ ID }">More details...</button>
-                    <button class="btn section-gallery__order-btn" data-id="${ ID }">Add to cart</button>
+                    <button class="btn section-gallery__add-to-cart-btn" data-id="${ ID }">Add to cart</button>
                 </div>
             </div>`
 	}
 
 	addlisteners() {
-		[...document.querySelectorAll(this.#orderBtnsClass)]
+		[...document.querySelectorAll('.section-gallery__add-to-cart-btn')]
 			.forEach(btn => btn.addEventListener('click', this.onClickAddToCart));
+		[...document.querySelectorAll('.section-gallery__details-btn')]
+			.forEach(btn => btn.addEventListener('click', this.onClickRenderProductDetails));
 	}
 
 	addFilterByPriceListeners() {
