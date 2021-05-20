@@ -42,8 +42,7 @@ export default class ControllerCart {
 
 	onClickMakeOrder = data => {
 		const orderedCount = this.view.orderedCount;
-console.log('ordered in cart');
-console.log(orderedCount);
+
 		this.publisher.notify('SHOW_ORDER_WINDOW', orderedCount);
 	}
 }

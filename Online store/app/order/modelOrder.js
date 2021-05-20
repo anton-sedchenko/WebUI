@@ -18,24 +18,60 @@ export default class ModelOrder {
 		this.#orderedCount = data;
 	}
 
-	getInfoToSentOwner(buyerData) {
-		const dataToSend = {};
+	getInfoToSendOwner(buyerData) {
+		const newStr = '%0A';
+		const strDivider = '------------------------------';
 		this.orderedProducts = JSON.parse(localStorage.getItem('cart'));
+		const infoAboutBuyer = [];
+		let infoToSend = '';
+		let buyerInfo = '';
+		let productsCountinfo = '';
+		let productsInfo = '';
 
-		dataToSend.buyerInfo = buyerData;
-		dataToSend.orderedCount = this.orderedCount;
-		dataToSend.orderedProducts = this.orderedProducts;
+		infoAboutBuyer.push('*Phone:* ' + buyerData.buyerPhone);
+		infoAboutBuyer.push('*City:* ' + buyerData.buyerCity);
+		infoAboutBuyer.push('*Street:* ' + buyerData.buyerStreet);
+		infoAboutBuyer.push('*Build:* ' + buyerData.buyerBuild);
+		infoAboutBuyer.push('*App:* ' + buyerData.buyerApp);
+		infoAboutBuyer.push('*Name:* ' + buyerData.buyerName);
+		infoAboutBuyer.push('*Email:* ' + buyerData.buyerEmail);
 
-		console.log(dataToSend);
+		const infoAboutBuyerArr = Object.entries(infoAboutBuyer);
+		const productsCountArr = Object.entries(this.orderedCount);
+		const orderedProductsArr = Object.entries(this.orderedProducts);
+
+		infoAboutBuyerArr.forEach(([key, value]) => {
+			buyerInfo += value + newStr;
+		});
+
+		productsCountinfo += `${ strDivider }${ newStr }*PRODUCTS COUNT:*${ newStr }${ strDivider }${ newStr }`;
+
+		productsCountArr.forEach(([key, value], i, arr) => {
+			if (i === arr.length - 1) {
+				productsCountinfo += `*Total price:* ${ this.orderedCount[key] } UAH${ newStr }`;
+				return;
+			}
+			productsCountinfo += `*Product id:* ${ key }${ newStr }`;
+			productsCountinfo += `*Ordered count:* ${ value }${ newStr }`;
+		});
+
+		productsInfo += `${ strDivider }${newStr}*ORDERED PRODUCTS:*${ newStr }${ strDivider }${ newStr }`;
+
+		orderedProductsArr.forEach(([key, value], i, arr) => {
+			productsInfo += `*Product:* ${ value.PRODUCT_NAME } `;
+			productsInfo += `*Id:* ${ value.ID } ${ newStr }`;
+			productsInfo += `*Units:* ${ value.UNITS } `;
+			productsInfo += `*Price:* ${ value.PRICE } ${ newStr }`;
+		});
+
+		return buyerInfo + productsCountinfo + productsInfo;
 	}
 
 	async sendOrderInfoToOwner(data) {
 		const sendData = JSON.stringify(data);
 		const chatId = '528157194';
 		const token = '1839435046:AAGN4hhlyCcodmAkJJ-4ZDdNJ8fadmheW7w';
-
-		const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&parse_mode=markdown&text=${sendData}`;
-
+		const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${ chatId }&parse_mode=markdown&text=${ sendData }`;
 		const response = await fetch(url);
 
 		if (!response.ok) {
@@ -43,6 +79,7 @@ export default class ModelOrder {
 		}
 
 		alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+
 		return await response.json();
 	}
 }

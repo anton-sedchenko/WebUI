@@ -4,18 +4,24 @@ import ViewProducts from './viewProducts.js';
 export default class ControllerProducts {
 	constructor(Publisher) {
 		this.model = new ModelProducts();
-		this.view = new ViewProducts(this.onClickAddToCart, 
-			this.onClickFilterCheapFirst,
-			this.onClickFilterExpensiveFirst,
-			this.onClickSearchByName,
-			this.onClickResetFilter,
-			this.onClickRenderProductDetails);
+		this.view = new ViewProducts(this.viewListeners);
 
 		this.load();
 		this.publisher = Publisher;
 		this.publisher.subscribe('GET_DATA_BY_CATEGORIES', 
 			this.handleDataFilteredByCategories);
 
+	}
+
+	get viewListeners() {
+		return {
+			onClickAddToCart: this.onClickAddToCart, 
+			onClickFilterCheapFirst: this.onClickFilterCheapFirst,
+			onClickFilterExpensiveFirst: this.onClickFilterExpensiveFirst,
+			onClickSearchByName: this.onClickSearchByName,
+			onClickResetFilter: this.onClickResetFilter,
+			onClickRenderProductDetails: this.onClickRenderProductDetails
+		}
 	}
 
 	load() {

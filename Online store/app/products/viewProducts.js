@@ -1,19 +1,9 @@
 export default class ViewProducts {
-	constructor(onClickAddToCart, 
-		onClickFilterCheapFirst, 
-		onClickFilterExpensiveFirst, 
-		onClickSearchByName,
-		onClickResetFilter,
-		onClickRenderProductDetails) {
+	constructor(viewListeners) {
 		this.dom = document.querySelector('.section-gallery__content');
 		this.domFilterByName = document.querySelector('.filter-by-name');
 		this.domFilterNameSearchBtn = document.querySelector('.filter-btn-search-icon');
-		this.onClickAddToCart = onClickAddToCart;
-		this.onClickFilterCheapFirst = onClickFilterCheapFirst;
-		this.onClickFilterExpensiveFirst = onClickFilterExpensiveFirst;
-		this.onClickSearchByName = onClickSearchByName;
-		this.onClickResetFilter = onClickResetFilter;
-		this.onClickRenderProductDetails = onClickRenderProductDetails;
+		this.viewListeners = viewListeners;
 
 		this.addFilterByPriceListeners();
 		this.addFilterByNameListener();
@@ -51,26 +41,26 @@ export default class ViewProducts {
 
 	addlisteners() {
 		[...document.querySelectorAll('.section-gallery__add-to-cart-btn')]
-			.forEach(btn => btn.addEventListener('click', this.onClickAddToCart));
+			.forEach(btn => btn.addEventListener('click', this.viewListeners.onClickAddToCart));
 		[...document.querySelectorAll('.section-gallery__details-btn')]
-			.forEach(btn => btn.addEventListener('click', this.onClickRenderProductDetails));
+			.forEach(btn => btn.addEventListener('click', this.viewListeners.onClickRenderProductDetails));
 	}
 
 	addFilterByPriceListeners() {
 		document.querySelector('.filter-cheap-first').addEventListener('click', 
-			this.onClickFilterCheapFirst);
+			this.viewListeners.onClickFilterCheapFirst);
 		document.querySelector('.filter-expensive-first').addEventListener('click', 
-			this.onClickFilterExpensiveFirst);
+			this.viewListeners.onClickFilterExpensiveFirst);
 	}
 
 	addFilterByNameListener() {
 		document.querySelector('.filter-btn-search-icon').addEventListener('click', 
-			this.onClickSearchByName);
+			this.viewListeners.onClickSearchByName);
 	}
 
 	addFilterResetBtnListener() {
 		document.querySelector('.filter-reset-btn').addEventListener('click', 
-			this.onClickResetFilter);
+			this.viewListeners.onClickResetFilter);
 	}
 
 	getSearchValue() {

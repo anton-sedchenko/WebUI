@@ -16,23 +16,15 @@ export default class ControllerOrder {
 	}
 
 	handleShowOrderWindow = data => {
-		console.log('recieved data');
-		console.log(data);
 		this.model.orderedCount = data;
 		this.view.renderOrder();
 	}
 
 	onClickSendInfoToOwner = (evt) => {
 		evt.preventDefault();
-
 		const buyerData = this.view.getBuyerData();
-		const infoToSent = this.model.getInfoToSentOwner(buyerData);
+		const infoToSend = this.model.getInfoToSendOwner(buyerData);
 
-		// вызвать метод отправки хозяину
-		this.model.sendOrderInfoToOwner();
-
-		// вызвать метод сохранения в ЛС в историю
-		// 
-		
+		this.model.sendOrderInfoToOwner(infoToSend);
 	}
 }
