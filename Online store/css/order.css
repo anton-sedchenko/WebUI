@@ -1,0 +1,32 @@
+@import 'fonts.css';
+
+.order__modal-window {
+	position: absolute;
+	z-index: 4000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 50px 0;
+}
+
+.order__content-container {
+	max-height: 700px;
+	overflow: auto;
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+	min-height: 420px;
+	background-color: #F8F8F8;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.order__heading {
+	font-size: 26px !important;
+}
+
+.submit-order-btn {
+	width: 200px;
+}

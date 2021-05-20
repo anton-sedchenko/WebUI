@@ -4,10 +4,11 @@ import ViewCart from './viewCart.js';
 export default class ControllerCart {
 	constructor(publisher) {
 		this.model = new ModelCart();
-		this.view = new ViewCart(this.handleRemoveFromCart);
+		this.view = new ViewCart(this.handleRemoveFromCart,
+			this.onClickMakeOrder);
 
 		this.load();
-
+		this.publisher = publisher;
 		publisher.subscribe('ADD_TO_CART', this.handleAddToCart);
 	}
 
@@ -16,6 +17,7 @@ export default class ControllerCart {
 		
 		this.view.render(cart);
 		this.view.renderTotalPrice();
+		this.view.saveOrderData();
 	}
 
 	handleAddToCart = data => {
@@ -23,6 +25,7 @@ export default class ControllerCart {
 
 		this.view.render(newProduct);
 		this.view.renderTotalPrice();
+		this.view.saveOrderData();
 	}
 
 	handleRemoveFromCart = evt => {
@@ -32,6 +35,15 @@ export default class ControllerCart {
 
 			this.view.render(newCart);
 			this.view.renderTotalPrice(id);
+			delete this.view.orderedCount[id];
+			this.view.saveOrderData();
 		}
+	}
+
+	onClickMakeOrder = data => {
+		const orderedCount = this.view.orderedCount;
+console.log('ordered in cart');
+console.log(orderedCount);
+		this.publisher.notify('SHOW_ORDER_WINDOW', orderedCount);
 	}
 }

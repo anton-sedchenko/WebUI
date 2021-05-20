@@ -20,19 +20,11 @@
 	min-height: 420px;
 	background-color: #F8F8F8;
 	padding: 20px;
+	border-radius: 5px;
 }
 
 .cart__heading {
 	font-size: 26px !important;
-}
-
-.cart__table-column-title {
-	text-align: center;
-}
-
-.cart__table-column-price {
-	display: flex;
-	justify-content: flex-start;
 }
 
 .cart__item-container {

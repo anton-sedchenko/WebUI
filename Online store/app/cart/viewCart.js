@@ -1,12 +1,34 @@
 export default class ViewCart {
-	constructor(handleRemoveFromCart) {
+	#orderedCount = {};
+
+	constructor(handleRemoveFromCart, onClickMakeOrder) {
 		this.domProductsContainer = document.querySelector('.cart__products-container');
 		this.domCartBtn = document.querySelector('.header__cart-container');
 		this.domCartContainer = document.querySelector('.cart-modal-window');
 		this.domBody = document.querySelector('body');
+		this.domOrderBtn = document.querySelector('.cart__order-btn');
+		this.onClickMakeOrder = onClickMakeOrder;
 		this.domCartBtn.addEventListener('click', this.onClickRenderCart);
 		this.domCartContainer.addEventListener('click', this.onClickCloseCart);
 		this.domCartContainer.addEventListener('click', handleRemoveFromCart);
+	}
+
+	get orderedCount() {
+		return this.#orderedCount;
+	}
+
+	set orderedCount(count) {
+		this.#orderedCount = count;
+	}
+
+	saveOrderData() {
+		const domCountOfProducts = [...document.querySelectorAll('.product-describe__quantity')];
+		const domTotalPrice = document.querySelector('.cart__total-price');
+
+		domCountOfProducts.forEach(item => {
+			this.orderedCount[item.dataset.id] = item.textContent;
+		});
+		this.orderedCount.totalPrice = +domTotalPrice.textContent;
 	}
 
 	onClickRenderCart = () => {
@@ -18,7 +40,7 @@ export default class ViewCart {
 	}
 
 	onClickCloseCart = (evt) => {
-		if (evt.target === this.domCartContainer) {
+		if (evt.target === this.domCartContainer || evt.target === this.domOrderBtn) {
 			this.domCartContainer.classList.toggle('close');
 			this.domBody.style.overflow = 'auto';
 		}
@@ -57,6 +79,7 @@ export default class ViewCart {
 		domCounter.innerHTML = productCounter;
 		domProductSum.innerHTML = currentSumOfProduct;
 		this.renderTotalPrice(productId);
+		this.saveOrderData();
 	}
 
 	renderTotalPrice() {
@@ -76,6 +99,7 @@ export default class ViewCart {
 		allProductCounterBtns.forEach(btn => {
 			btn.addEventListener('click', this.onClickSumPriceChange);
 		});
+		this.domOrderBtn.addEventListener('click', this.onClickMakeOrder);
 	}
 
 	renderCartCard({ IMG_LINK, PRODUCT_NAME, UNITS, PRICE, ID }) {

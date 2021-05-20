@@ -3,7 +3,7 @@ export default class ModelCart {
 
 	loadFromLS() {
 		this.#cart = JSON.parse(localStorage.getItem('cart') || '[]');
-		
+
 		return this.cart;
 	}
 
