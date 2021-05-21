@@ -11,8 +11,6 @@ export default class ControllerFilter {
 	}
 
 	handleFilterLoad = ({ categories, data }) => {
-		console.log(categories);
-
 		this.view.render(categories);
 		this.model.data = data;
 	}

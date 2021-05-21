@@ -51,6 +51,8 @@ export default class ViewProducts {
 			this.viewListeners.onClickFilterCheapFirst);
 		document.querySelector('.filter-expensive-first').addEventListener('click', 
 			this.viewListeners.onClickFilterExpensiveFirst);
+		document.querySelector('.filter-default').addEventListener('click', 
+			this.viewListeners.onClickFilterDefault);
 	}
 
 	addFilterByNameListener() {

@@ -7,13 +7,9 @@ export default class ControllerProductDetails {
 		this.view = new ViewProductDetails();
 		this.publisher = publisher;
 
-		this.load();
+		this.view.renderProductDetails();
 		publisher.subscribe('SHOW_PRODUCT_DETAILS_WINDOW', 
 			this.handleRenderProductDetails);
-	}
-
-	load() {
-		this.view.renderProductDetails();
 	}
 
 	handleRenderProductDetails = data => {

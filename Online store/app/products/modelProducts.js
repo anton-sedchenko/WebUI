@@ -33,7 +33,6 @@ export default class ModelProducts {
 				}
 				this.#data = products;
 				this.#currentPageData = products;
-				console.log(this.data);
 				return this.data;
 			});
 	}

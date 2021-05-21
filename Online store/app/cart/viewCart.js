@@ -1,5 +1,6 @@
 export default class ViewCart {
 	#orderedCount = {};
+	#totalPrice = 0;
 
 	constructor(handleRemoveFromCart, onClickMakeOrder) {
 		this.domProductsContainer = document.querySelector('.cart__products-container');
@@ -19,6 +20,14 @@ export default class ViewCart {
 
 	set orderedCount(count) {
 		this.#orderedCount = count;
+	}
+
+	get totalPrice() {
+		return this.#totalPrice;
+	}
+
+	set totalPrice(price) {
+		this.#totalPrice = price;
 	}
 
 	saveOrderData() {
@@ -89,6 +98,7 @@ export default class ViewCart {
 			return sum + (+curr.textContent);
 		}, 0);
 
+		this.totalPrice = totalSum;
 		domTotalPrice.innerHTML = totalSum;
 	}
 
@@ -100,6 +110,11 @@ export default class ViewCart {
 			btn.addEventListener('click', this.onClickSumPriceChange);
 		});
 		this.domOrderBtn.addEventListener('click', this.onClickMakeOrder);
+	}
+
+	clearCart() {
+		this.domProductsContainer.innerHTML = 'Cart is empty';
+		document.querySelector('.cart__total-price').innerHTML = 0;
 	}
 
 	renderCartCard({ IMG_LINK, PRODUCT_NAME, UNITS, PRICE, ID }) {

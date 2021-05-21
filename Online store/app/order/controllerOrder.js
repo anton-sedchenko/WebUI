@@ -6,13 +6,13 @@ export default class ControllerOrder {
 		this.model = new ModelOrder();
 		this.view = new ViewOrder(this.onClickSendInfoToOwner);
 
-		this.load();
-
+		this.view.render();
 		publisher.subscribe('SHOW_ORDER_WINDOW', this.handleShowOrderWindow);
+		publisher.subscribe('PASS_TOTAL_SUM_DATA', this.handleTotalSumData);
 	}
 
-	load() {
-		this.view.render();
+	handleTotalSumData = totalSumData => {
+		this.model.totalPrice = totalSumData;
 	}
 
 	handleShowOrderWindow = data => {
@@ -26,5 +26,7 @@ export default class ControllerOrder {
 		const infoToSend = this.model.getInfoToSendOwner(buyerData);
 
 		this.model.sendOrderInfoToOwner(infoToSend);
+		this.model.saveHistoryToLS(buyerData);
+		this.view.disableSubmitBtn();
 	}
 }

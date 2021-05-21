@@ -3,6 +3,7 @@ import ControllerCart from './cart/controllerCart.js';
 import ControllerOrder from './order/controllerOrder.js';
 import ControllerProductDetails from './product_details/controllerProductDetails.js';
 import ControllerFilter from './filter/controllerFilter.js';
+import ControllerHistory from './history/controllerHistory.js';
 import Publisher from './helpers/publisher.js';
 import sliderCards from './slider-cards.js';
 import Slider from './slider.js';
@@ -14,5 +15,6 @@ const productDetails = new ControllerProductDetails(publisher);
 const cart = new ControllerCart(publisher);
 const order = new ControllerOrder(publisher);
 const filter = new ControllerFilter(publisher);
+const history = new ControllerHistory(publisher);
 
 slider.init();

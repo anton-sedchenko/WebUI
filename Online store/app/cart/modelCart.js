@@ -7,6 +7,13 @@ export default class ModelCart {
 		return this.cart;
 	}
 
+	clearCartAtLS() {
+		localStorage.setItem('cart', '[]');
+		this.#cart = [];
+		
+		return this.cart;
+	}
+
 	get cart() {
 		return JSON.parse(JSON.stringify(this.#cart));
 	}

@@ -10,15 +10,34 @@
 	height: 100px;
 }
 
+.header__actions-container {
+	width: 150px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
 .header__cart-container {
-	width: 50px;
-	height: 50px;
 	cursor: pointer;
 }
 
 .header__cart-container img:active {
 	width: 45px;
 	height: 45px;
+}
+
+.header__orders-history {
+	cursor: pointer;
+}
+
+.header__orders-history:hover {
+	color: green !important;
+}
+
+.header__orders-history:active {
+	font-size: 16px !important;
 }
 
 .contacts-email-link {
@@ -48,7 +67,7 @@
 		margin-bottom: 15px;
 	}
 
-	.header__actions-container {
+	.header__actions-alignment {
 		justify-content: center !important;
 	}
 }

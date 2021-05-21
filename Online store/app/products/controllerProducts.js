@@ -20,7 +20,8 @@ export default class ControllerProducts {
 			onClickFilterExpensiveFirst: this.onClickFilterExpensiveFirst,
 			onClickSearchByName: this.onClickSearchByName,
 			onClickResetFilter: this.onClickResetFilter,
-			onClickRenderProductDetails: this.onClickRenderProductDetails
+			onClickRenderProductDetails: this.onClickRenderProductDetails,
+			onClickFilterDefault: this.onClickFilterDefault
 		}
 	}
 
@@ -66,9 +67,15 @@ export default class ControllerProducts {
 
 	onClickFilterExpensiveFirst = () => {
 		const currentPageData = this.model.currentPageData;
-		const sortedData = this.model.filterExpensiveFirst(currentPageData)
+		const sortedData = this.model.filterExpensiveFirst(currentPageData);
 
 		this.view.render(sortedData);
+	}
+
+	onClickFilterDefault = () => {
+		const currentPageData = this.model.currentPageData;
+
+		this.view.render(currentPageData);
 	}
 
 	onClickSearchByName = () => {

@@ -43,6 +43,15 @@
             </div>
         </div>
 
+        <div class="history__modal-window close">
+            <div class="container history__content-container p-4">
+                <h2 class="history__heading mb-3">History details</h2>
+                <div class="row history__info-container m-2">
+                </div>
+                <div class="close-btn">X</div>
+            </div>
+        </div>
+
         <div class="wrapper">
             <header class="container-fluid header mb-2">
                 <div class="row header__content-wrapper">
@@ -57,9 +66,12 @@
                             <img class="header__logo" src="img/logo.svg" alt="logo">
                         </a>
                     </div>
-                    <div class="col-sm-8 col-md-4 header__actions-container d-flex justify-content-end">
-                        <div class="header__cart-container">
-                            <img src="img/cart.png" alt="cart icon">
+                    <div class="col-sm-8 col-md-4 header__actions-alignment d-flex justify-content-end">
+                        <div class="header__actions-container">
+                            <div class="header__cart-container">
+                                <img class="mb-2" src="img/cart.png" alt="cart icon">
+                            </div>
+                            <p class="header__orders-history">Orders history</p>
                         </div>
                     </div>
                 </div>
@@ -122,7 +134,9 @@
                         <div class="mb-3">
                             <span class="section-gallery__filter-option filter-cheap-first">Сheap first</span>
                             <span class="section-gallery__filter-options-divider">/</span>
-                            <span class="section-gallery__filter-option filter-expensive-first">Expensive first</span>    
+                            <span class="section-gallery__filter-option filter-expensive-first">Expensive first</span>
+                            <span class="section-gallery__filter-options-divider">/</span>
+                            <span class="section-gallery__filter-option filter-default">By default</span> 
                         </div>
                         
                         <p class="section-gallery__filter-search-wrapper mb-3">

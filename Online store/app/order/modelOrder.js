@@ -1,6 +1,8 @@
 export default class ModelOrder {
-	#orderedProducts = JSON.parse(localStorage.getItem('cart') || {});
+	#orderedProducts = {};
 	#orderedCount = {};
+	#pastHistory = JSON.parse(localStorage.getItem('history') || '[]');
+	#totalPrice = 0;
 
 	set orderedProducts(data) {
 		this.#orderedProducts = data;
@@ -16,6 +18,50 @@ export default class ModelOrder {
 
 	set orderedCount(data) {
 		this.#orderedCount = data;
+	}
+
+	set totalPrice(sum) {
+		this.#totalPrice = sum;
+	}
+
+	get totalPrice() {
+		return this.#totalPrice;
+	}
+
+	getPastHistory = () => {
+		if (this.#pastHistory.length === 0) {
+			return this.#pastHistory;
+		}
+
+		this.#pastHistory = JSON.parse(localStorage.getItem('history'));
+	}
+
+	uptadePastHistory(data) {
+		this.#pastHistory.push(data);
+	}
+
+	saveHistoryToLS(buyerInfo) {
+		this.getPastHistory();
+
+		const currentOrder = {};
+		const orderedProductsInfo = this.orderedProducts;
+		const buyerDataInfo = buyerInfo;
+
+		currentOrder.orderNumber = this.#pastHistory.length + 1;
+		currentOrder.buyerName = buyerDataInfo.buyerName;
+		currentOrder.buyerPhone = buyerDataInfo.buyerPhone;
+		currentOrder.orderedProducts = orderedProductsInfo;
+		currentOrder.totalSum = this.totalPrice;
+
+		this.uptadePastHistory(currentOrder);
+		localStorage.setItem('history', JSON.stringify(this.#pastHistory));
+	}
+
+	getOrderNumber(lastOrderNumber) {
+		if (lastOrderNumber && lastOrderNumber !== 1) {
+			return lastOrderNumber += 1;
+		}
+		return 1;
 	}
 
 	getInfoToSendOwner(buyerData) {
