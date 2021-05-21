@@ -55,16 +55,21 @@ export default class ViewOrder {
 		const emailFieldValue = document.querySelector('.order__buyer-email').value;
 		const telRegExp = new RegExp('\\+380\\d{9}');
 		const emailRegExp = new RegExp('\\w+@\\w+\\.\\w+', 'i');
-		const nameRegExp = /^(?!.*?[$+])[А-Я A-Z0-9-\/().,@&#*!%:]{1,40}/gi;
+		const nameRegExp = /[?!.*?\/\().,@&#*!%:\d]/gi;
+		const isemptyString = nameFieldValue.length === 0;
 		const isTelValid = telRegExp.test(telFieldValue);
-		const isNameValid = nameRegExp.test(nameFieldValue);
+		const isNameValid = !nameRegExp.test(nameFieldValue);
 		const isMailValid = emailRegExp.test(emailFieldValue);
 
+		if (isemptyString || isNameValid) {
+			nameField.style.borderColor = 'red';
+		} else {
+			nameField.style.borderColor = 'green';
+		}
 		isTelValid ? telField.style.borderColor = 'green' : telField.style.borderColor = 'red';
-		isNameValid ? nameField.style.borderColor = 'green' : nameField.style.borderColor = 'red';
 		isMailValid ? emailField.style.borderColor = 'green' : emailField.style.borderColor = 'red';
 
-		if (isTelValid && isNameValid && isMailValid) {
+		if (isTelValid && isNameValid && isMailValid && !isemptyString) {
 			this.submitOrderBtn.removeAttribute('disabled');
 			this.submitOrderBtn.addEventListener('click', this.onClickSendInfoToOwner);
 		} else {
