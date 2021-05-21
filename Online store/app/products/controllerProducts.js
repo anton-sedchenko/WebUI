@@ -10,7 +10,6 @@ export default class ControllerProducts {
 		this.publisher = Publisher;
 		this.publisher.subscribe('GET_DATA_BY_CATEGORIES', 
 			this.handleDataFilteredByCategories);
-
 	}
 
 	get viewListeners() {

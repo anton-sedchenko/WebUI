@@ -43,9 +43,11 @@ export default class ControllerCart {
 	onClickMakeOrder = data => {
 		const orderedCount = this.view.orderedCount;
 		const totalSum = this.view.totalPrice;
+		const orderedProducts = this.model.cart;
 
 		this.publisher.notify('SHOW_ORDER_WINDOW', orderedCount);
 		this.publisher.notify('PASS_TOTAL_SUM_DATA', totalSum);
+		this.publisher.notify('PASS_ORDERED_PRODUCTS_DATA', orderedProducts);
 		this.view.clearCart();
 		this.model.clearCartAtLS();
 	}

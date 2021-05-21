@@ -25,10 +25,10 @@ export default class ViewHistory {
 		}
 	}
 
-	renderHistory(data) {
+	renderHistoryData(data) {
 		const productHistory = data;
 
-		if (!data) {
+		if (!productHistory) {
 			this.domHistoryContainer.innerHTML = this.renderEmptyHistory();
 			return;
 		}
@@ -36,8 +36,9 @@ export default class ViewHistory {
 		const orderedProductsNamesArr = data.map(item => item.orderedProducts);
 		const productsNames = orderedProductsNamesArr.map(item => {
 			let productNames = '';
+			let productsObj = item;
 
-			item.forEach(product => productNames += product.PRODUCT_NAME + ', ');
+			productsObj.forEach(product => productNames += product.PRODUCT_NAME + ', ');
 			return productNames;
 		});
 

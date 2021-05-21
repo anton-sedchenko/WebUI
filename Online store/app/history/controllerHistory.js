@@ -12,13 +12,13 @@ export default class ControllerHistory {
 	load() {
 		let history = this.model.loadFromLS();
 
-		this.view.renderHistory(history);
+		this.view.renderHistoryData(history);
 	}
 
 	handleOrdersHistoryClick = () => {
 		const history = this.model.getHistoryData();
 
 		this.view.showHistoryWindow();
-		this.view.renderHistory(history);
+		this.view.renderHistoryData(history);
 	}
 }

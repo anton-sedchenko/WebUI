@@ -67,7 +67,6 @@ export default class ModelOrder {
 	getInfoToSendOwner(buyerData) {
 		const newStr = '%0A';
 		const strDivider = '------------------------------';
-		this.orderedProducts = JSON.parse(localStorage.getItem('cart'));
 		const infoAboutBuyer = [];
 		let infoToSend = '';
 		let buyerInfo = '';
