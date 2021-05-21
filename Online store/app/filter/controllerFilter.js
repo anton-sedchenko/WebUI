@@ -1,5 +1,5 @@
 import ViewFilter from './viewFilter.js';
-import ModelFilter from './ModelFilter.js';
+import ModelFilter from './modelFilter.js';
 
 export default class ControllerFilter {
 	constructor(publisher) {
